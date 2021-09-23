@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- wiki-deployment.yaml
+- wiki-service.yaml
+- wiki-cronjob.yaml
+- wiki-horizontalpodautoscaler.yaml
+images:
+- name: IMAGE-PLACEHOLDER
+  newName: epylkkan/gitops-fe
+  newTag: 2410fc1393fc1410b0fc88079b7cd358ef4231aa

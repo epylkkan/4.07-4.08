@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- fe-deployment.yaml
+- fe-service.yaml
+- fe-horizontalpodautoscaler.yaml
+images:
+- name: IMAGE-PLACEHOLDER
+  newName: epylkkan/gitops-fe
+  newTag: 0cb9c241d841ebaffbd7a2ddf115e3a0c7bee46a
