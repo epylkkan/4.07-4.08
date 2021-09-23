@@ -12,6 +12,7 @@ flux bootstrap github --owner=epylkkan --repository=epylkkan/devops-with-kuberne
 flux bootstrap github --owner=epylkkan --repository=epylkkan/devops-with-kubernetes_hy2021_408_be --personal --private=false --token-auth
 flux bootstrap github --owner=epylkkan --repository=epylkkan/devops-with-kubernetes_hy2021_408_wiki --personal --private=false --token-auth
 flux bootstrap github --owner=epylkkan --repository=epylkkan/devops-with-kubernetes_hy2021_408_broadcaster --personal --private=false --token-auth
+flux bootstrap github --owner=epylkkan --repository=epylkkan/4.07-4.08 --personal --private=false --token-auth
 
 # flux logs --level=error
 
@@ -19,6 +20,7 @@ git clone https://github.com/epylkkan/devops-with-kubernetes_hy2021_408_fe
 git clone https://github.com/epylkkan/devops-with-kubernetes_hy2021_408_be
 git clone https://github.com/epylkkan/devops-with-kubernetes_hy2021_408_wiki
 git clone https://github.com/epylkkan/devops-with-kubernetes_hy2021_408_broadcaster
+git clone https://github.com/epylkkan/4.07-4.08
 
 
 START NATS, POSTGRE AND INGRESS (no own code)

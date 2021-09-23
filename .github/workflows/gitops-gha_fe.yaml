@@ -25,6 +25,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
        push: true
+       file: ./frontend/Dockerfile
+       context: ./frontend
        tags: epylkkan/gitops-fe:${{ github.sha }}              
 
   deploy:

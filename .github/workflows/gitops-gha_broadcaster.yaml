@@ -25,6 +25,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
        push: true
+       file: ./broadcaster/Dockerfile
+       context: ./broadcaster
        tags: epylkkan/gitops-broadcaster:${{ github.sha }}              
 
   deploy:
