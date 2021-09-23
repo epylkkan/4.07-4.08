@@ -7,4 +7,4 @@ resources:
 images:
 - name: BACKEND-IMAGE
   newName: epylkkan/gitops-be
-  newTag: 257dd0d4c96a16fe5aee8ac09c2a2fbbbcaf6191
+  newTag: d6ef488b6b3aebb4a0b14f6f0653b178b5bc697b
