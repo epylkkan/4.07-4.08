@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- fe-deployment.yaml
+- fe-service.yaml
+- fe-horizontalpodautoscaler.yaml
+images:
+- name: FRONTEND-IMAGE
+  newName: epylkkan/gitops-fe
+  newTag: cda13cb5b8f80f28daced4a551b7b540e599d969

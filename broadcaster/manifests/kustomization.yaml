@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- broadcaster.yaml
+- broadcaster-sealed-secret.yaml
+images:
+- name: BROADCASTER-IMAGE
+  newName: epylkkan/gitops-broadcaster
+  newTag: 09259766d3cfe1f620e9577b152f87724afef98b
