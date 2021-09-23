@@ -27,14 +27,14 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build and push      
-      working-directory: backend
+      #working-directory: backend
       run: |
         ls 
 
     - uses: docker/build-push-action@v2             
       with:       
        push: true
-       path: backend
+       file: ./backend/Dockerfile
        tags: epylkkan/gitops-be:${{ github.sha }}              
 
   deploy:
