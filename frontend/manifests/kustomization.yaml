@@ -7,4 +7,4 @@ resources:
 images:
 - name: FRONTEND-IMAGE
   newName: epylkkan/gitops-fe
-  newTag: cda13cb5b8f80f28daced4a551b7b540e599d969
+  newTag: 8349f85cd436b696c7a7e0a4bb8279262b4ce120
