@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '**'
+      - 'broadcaster/**'
       - '.github/workflows/gitops-gha_broadcaster.yaml'
 
 jobs:

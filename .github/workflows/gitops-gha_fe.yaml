@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '**'
+      - 'frontend/**'
       - '.github/workflows/gitops-gha_fe.yaml'
 
 jobs:

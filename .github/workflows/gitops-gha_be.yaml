@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '**'
+      - 'backend/**'
       - '.github/workflows/gitops-gha_be.yaml'
 
 jobs:
