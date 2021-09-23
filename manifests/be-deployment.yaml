@@ -24,8 +24,7 @@ spec:
     spec:
       containers:
         - name: todo
-          image: IMAGE-PLACEHOLDER
-          #image: epylkkan/training_kubernetes_devops:210backend
+          image: BACKEND-IMAGE
           readinessProbe:
            initialDelaySeconds: 10
            periodSeconds: 5

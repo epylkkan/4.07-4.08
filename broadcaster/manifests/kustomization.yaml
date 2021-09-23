@@ -4,6 +4,6 @@ resources:
 - broadcaster.yaml
 - broadcaster-sealed-secret.yaml
 images:
-- name: IMAGE-PLACEHOLDER
+- name: BROADCASTER-IMAGE
   newName: epylkkan/gitops-broadcaster
   newTag: 09259766d3cfe1f620e9577b152f87724afef98b

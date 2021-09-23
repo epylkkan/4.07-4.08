@@ -6,6 +6,6 @@ resources:
 - wiki-cronjob.yaml
 - wiki-horizontalpodautoscaler.yaml
 images:
-- name: IMAGE-PLACEHOLDER
-  newName: epylkkan/gitops-fe
-  newTag: 2410fc1393fc1410b0fc88079b7cd358ef4231aa
+- name: WIKI-IMAGE
+  newName: epylkkan/gitops-wiki
+  newTag: 7342c61475dde43965dcc4f3adbda370946a994d

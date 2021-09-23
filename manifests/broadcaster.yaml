@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: todo-broadcaster
-          image: IMAGE-PLACEHOLDER
+          image: BROADCASTER-IMAGE
           imagePullPolicy: Always
           env: 
           - name: NATS

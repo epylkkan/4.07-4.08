@@ -5,6 +5,6 @@ resources:
 - be-service.yaml
 - be-horizontalpodautoscaler.yaml
 images:
-- name: IMAGE-PLACEHOLDER
+- name: BACKEND-IMAGE
   newName: epylkkan/gitops-be
-  newTag: ad76aed028b3a1d14fdaeab4bebcdfb4149308ed
+  newTag: 257dd0d4c96a16fe5aee8ac09c2a2fbbbcaf6191

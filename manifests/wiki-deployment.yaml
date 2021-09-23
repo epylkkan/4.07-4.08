@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: todo-wiki
-          image: IMAGE-PLACEHOLDER
+          image: WIKI-IMAGE
           resources:
             limits:
               cpu: "150m"
