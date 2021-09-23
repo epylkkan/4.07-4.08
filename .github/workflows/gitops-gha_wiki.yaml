@@ -45,7 +45,7 @@ jobs:
 
     # Update yamls
     - name: Update yamls
-      working-directory: manifests
+      working-directory: wiki/manifests
       run: |-
         ./kustomize edit set image WIKI-IMAGE=epylkkan/gitops-wiki:${{ github.sha }}
  

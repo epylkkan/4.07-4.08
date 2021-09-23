@@ -47,7 +47,7 @@ jobs:
     - name: Update yamls
       working-directory: manifests
       run: |-
-        ./kustomize edit set image IMAGE-PLACEHOLDER=epylkkan/gitops-broadcaster:${{ github.sha }}
+        ./kustomize edit set image BROADCASTER-IMAGE=epylkkan/gitops-broadcaster:${{ github.sha }}
 
     # Commit and push
     - uses: EndBug/add-and-commit@v5

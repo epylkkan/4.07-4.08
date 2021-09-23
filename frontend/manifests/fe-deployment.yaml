@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: todo-front
-          image: IMAGE-PLACEHOLDER
+          image: FRONTEND-IMAGE
           readinessProbe:
            failureThreshold: 3
            successThreshold: 1
