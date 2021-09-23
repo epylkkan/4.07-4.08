@@ -19,7 +19,9 @@ jobs:
     #env:
     #   working-directory: backend
     steps:
-    - run: ls -al
+    - name: List
+      run: |-
+        ls -al            
     - uses: actions/checkout@v2
 
     - name: Login to DockerHub
