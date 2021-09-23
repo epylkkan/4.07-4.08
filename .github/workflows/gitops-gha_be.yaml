@@ -8,12 +8,16 @@ on:
       - '**'
       - '.github/workflows/gitops-gha_be.yaml'
 
+defaults:
+  run:
+    working-directory: backend
+
 jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    env:
-       working-directory: backend
+    #env:
+    #   working-directory: backend
     steps:
     - uses: actions/checkout@v2
 
@@ -26,7 +30,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2 
       with:
-       working-directory: ${{env.working-directory}}
        push: true
        tags: epylkkan/gitops-be:${{ github.sha }}              
 
@@ -43,15 +46,16 @@ jobs:
       run: |-
         curl -sfLo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v3.1.0/kustomize_3.1.0_linux_amd64
         chmod u+x ./kustomize
+
     # Update yamls
     - name: Update yamls
       working-directory: backend/manifests
       run: |-
         ./kustomize edit set image BACKEND-IMAGE=epylkkan/gitops-be:${{ github.sha }}
+
     # Commit and push
     - uses: EndBug/add-and-commit@v5
       with:
-        # add: 'frontend/kustomization.yaml'
         add: 'backend/manifests/kustomization.yaml'
         message: New version release for gitops-be ${{ github.sha }}
       env:
