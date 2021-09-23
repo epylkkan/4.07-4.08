@@ -20,8 +20,7 @@ jobs:
     #   working-directory: backend
     steps:
     - name: List
-      run: |-
-        ls -al            
+      run: echo 'xyz'            
     - uses: actions/checkout@v2
 
     - name: Login to DockerHub
