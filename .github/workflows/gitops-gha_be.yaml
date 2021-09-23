@@ -28,7 +28,6 @@ jobs:
 
     - name: Build and push      
     - name: change directory 
-      #working-directory: backend 
       run: | 
         ls       
     - uses: docker/build-push-action@v2             
