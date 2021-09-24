@@ -8,4 +8,4 @@ resources:
 images:
 - name: WIKI-IMAGE
   newName: epylkkan/gitops-wiki
-  newTag: 7342c61475dde43965dcc4f3adbda370946a994d
+  newTag: 196737c5cd19b12da291ac8a8137129b6582fb2e
