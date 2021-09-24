@@ -8,6 +8,7 @@ kubectl get nodes --output wide
 # kubectl create secret generic todopw --from-file=/usr/src/app/todopw -n todo // not used
 
 git clone https://github.com/epylkkan/4.07-4.08
+export GITHUB_TOKEN=...
 flux bootstrap github --owner=epylkkan --repository=epylkkan/4.07-4.08 --personal --private=false --token-auth
 
 # flux logs --level=error
@@ -33,8 +34,8 @@ wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.12.1/co
 kubectl apply -f controller.yaml
 kubectl get po -n kube-system
 k logs sealed-secrets-controller-5cbc6dc7d8-jsxqr -n kube-system
-kubectl port-forward sealed-secrets-controller-7f6996f967-rcthp 8080:8080 -n kube-system
- curl -O localhost:8080/v1/public-key-cert.pem
+#kubectl port-forward sealed-secrets-controller-7f6996f967-rcthp 8080:8080 -n kube-system
+# curl -O localhost:8080/v1/public-key-cert.pem
 kubectl get secret -n kube-system -l sealedsecrets.bitnami.com/sealed-secrets-key -o yaml
 
 1) create sealed secret for posgre
