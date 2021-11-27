@@ -11,29 +11,39 @@ const sc = StringCodec();
 
 let nc = null; 
 let todoContent = null; 
+
+
 const connectToNats = async () => 
 {
     console.log(natsHost)   
     try { 
-       nc = await connect({ servers: natsHost, json: true })
-       console.log("Connected to nats successfully")
-        const sub = nc.subscribe("todos");
-        (async () => {
+        nc = await connect({ servers: natsHost, json: true })  
+        const sub = await nc.subscribe("todos")         
+
+        if(nc){       
+          console.log("Connected to nats successfully");          
+          
+           (async () => {         
+
           for await (const m of sub) {
            //console.log(`[${sub.getProcessed()}]: ${sc.decode(m.data)}`);           
-           console.log (`${sc.decode(m.data)}`);
+           console.log(`${sc.decode(m.data)}`);
            todoContent = JSON.parse(`${sc.decode(m.data)}`);
-           console.log (todoContent)
+           console.log(todoContent);
           await sendToTelegram(todoContent);
           }
+        
           console.log("subscription closed");
         })();
+      }        
+    
     } catch(err) {
-      console.log(err)
-      console.log("Nats connection failed")
+      console.log(err);
+      console.log("Nats connection failed");
     }
     //await nc.drain();
 }
+
 connectToNats()
 
 const sendToTelegram = async (msg) => {

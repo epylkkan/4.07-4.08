@@ -1,7 +1,5 @@
 apiVersion: apps/v1
 kind: Deployment
-#apiVersion: argoproj.io/v1alpha1
-#kind: Rollout
 metadata:
   name: todo-back
   namespace: todo
@@ -9,14 +7,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: todo-back
-#  strategy:
-#    canary:
-#      steps:
-#      - setWeight: 50
-#      - analysis:
-#          templates:
-#          - templateName: cpu      
+      app: todo-back     
   template:
     metadata:
       labels:
@@ -37,10 +28,6 @@ spec:
             httpGet:
                path: /healthz
                port: 3002
-          volumeMounts: # Mount volume
-          - name: todopw
-            mountPath: "/usr/src/app/todopw"
-            readOnly: false
           envFrom:
             - secretRef:
                 name: todopw
@@ -53,7 +40,3 @@ spec:
             limits:
               cpu: "150m"
               memory: "100Mi"
-      volumes:
-        - name: todopw
-          secret: 
-            # name: todopw

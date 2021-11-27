@@ -25,6 +25,8 @@ spec:
           envFrom:
           - configMapRef:
               name: postgres-db-config
+          - secretRef:
+              name: todopw                
   # Volume Claim
   volumeClaimTemplates:
     - metadata:

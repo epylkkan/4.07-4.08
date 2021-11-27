@@ -4,10 +4,8 @@ const cors = require('cors')
 const { connect, StringCodec } = require("nats");
 let connected = false;
 
-//const pw = process.env.POSTGRES_PASSWORD.toString()
-const pw = process.env.POSTGRES_PASSWORD
+const pw = process.env.POSTGRES_PASSWORD.toString()
 
- 
 const { Client } = require('pg')
 const client = new Client({
   database: process.env.POSTGRES_DB,
@@ -17,13 +15,7 @@ const client = new Client({
   port: 5432,
 })
 
-client.connect(function(err) {
-
-  if (!(err)) {
-    console.log("Connected!");
-    connected=true;
-
-  // create table pong if it does not exist
+ checkDb = () => {
   const query_0 = `SELECT count(*) FROM information_schema.tables WHERE table_name = 'todo';`;
   client.query(query_0, (err, res) => {
 
@@ -42,8 +34,20 @@ client.connect(function(err) {
     }
     }) 
   }
-  })
 
+ client.connect(function(err) {
+  //  if (err) throw err;
+   if (!(err)) {
+    console.log("Connected!");
+    connected=true;
+    
+    // create table pong if it does not exist
+    checkDb()
+  
+    }
+ })
+
+ 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -194,6 +198,30 @@ app.delete('/deleteTask/:id', (req, res) => {
 
 
 const isConnected = () => {
+  const client_healthCheck = new Client({
+    database: process.env.POSTGRES_DB,
+    user: process.env.POSTGRES_USER,
+    password:  pw,
+    host: 'postgres-db-lb',
+    port: 5432,
+  })
+
+  client_healthCheck.connect()
+  client_healthCheck.query(`SELECT * FROM pong`, (err, res) => {
+
+    //if (err) throw err
+    //console.log(res)
+    if (res) {
+      console.log("Connected!");
+      if (!(connected)) {
+         checkDb()
+      }
+      connected=true;
+    }      
+    client_healthCheck.end()
+    
+  })
+
   return connected;
 }
 

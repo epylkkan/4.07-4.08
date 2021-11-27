@@ -1,6 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+- todopw.yaml
 - postgre-sealed-secret.yaml
 - postgre-persistentvolume.yaml
 - postgre-configmap.yaml
